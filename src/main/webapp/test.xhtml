@@ -3,7 +3,7 @@
       xmlns:ui="jakarta.faces.facelets"
       xmlns:f="jakarta.faces.core"
       xmlns:h="jakarta.faces.html"
-      xmlns:p="primefaces">
+      xmlns:p="http://primefaces.org/ui">
 
     <h:head>
         <title>PrimeFaces Test</title>
@@ -11,10 +11,36 @@
         <h:outputStylesheet name="test.css" />
     </h:head>
     <h:body>
-
         <h1>#{testView.string}</h1>
         <h:form id="frmTest">
+            <p:schedule value="#{testView.eventModel}" widgetVar="myschedule" height="1000px" />
 
+            <script>
+                    PrimeFaces.widget.Schedule.prototype._render = function () {
+
+                        this.cfg.options.eventDidMount = function (info) {
+
+                            let name = document.createElement('div');
+                            name.innerHTML= 'CUSTOMID'
+                            name.pro
+                            document.querySelector('.fc-event-title-container').prepend(name);
+
+
+                        };
+
+                        this.cfg.options.eventContent = function (arg) {
+
+                            //documentation should mention about it!!!
+                            console.log(arg)
+                        }
+
+                        var _self = this;
+                        var calendarEl = document.getElementById(this.cfg.id);
+                        _self.calendar = new FullCalendar.Calendar(calendarEl, this.cfg.options);
+                        _self.calendar.render();
+                }
+
+            </script>
         </h:form>
 
     </h:body>
