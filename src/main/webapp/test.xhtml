@@ -5,17 +5,19 @@
       xmlns:h="jakarta.faces.html"
       xmlns:p="primefaces">
 
-    <h:head>
-        <title>PrimeFaces Test</title>
-        <h:outputScript name="test.js" />
-        <h:outputStylesheet name="test.css" />
-    </h:head>
-    <h:body>
+<h:head>
+    <title>PrimeFaces Schedule</title>
+</h:head>
+<h:body>
+    <h:form>
 
-        <h1>#{testView.string}</h1>
-        <h:form id="frmTest">
+        <p:growl id="messages" showDetail="true" life="2000">
+            <p:autoUpdate/>
+        </p:growl>
 
-        </h:form>
-
-    </h:body>
+        <p:schedule value="#{scheduleView.eventModel}" view="${scheduleView.viewName}">
+            <p:ajax event="viewChange" listener="#{scheduleView.onViewChange}"/>
+        </p:schedule>
+    </h:form>
+</h:body>
 </html>
