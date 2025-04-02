@@ -7,7 +7,7 @@ updates:
       interval: "daily"
   - package-ecosystem: "maven"
     directory: "/"
-    target-branch: "javax"
+    target-branch: "jakarta"
     schedule:
       interval: "daily"
   - package-ecosystem: "maven"
