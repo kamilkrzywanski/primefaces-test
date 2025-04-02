@@ -7,40 +7,12 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
 
-
-
-
-            <h:outputScript name="js/tinymce/tinymce.min.js" />
-            <h:outputScript name="js/upload-image.js" target="head"/>
-            <h:outputScript name="js/tinymce/tinymce-images.js" target="head"/>
-            <h:outputScript name="js/tinymce/tinymce-configuration.js" target="head"/>
         <script type="text/javascript">
 
                 const options = {
                     language: 'pl',
                     min_height: 100,
                 };
-
-                var isPopupView = true;
-                const setupFunc = function (editor) {
-                    editor.on('init', function () {
-                        $(editor.getBody()).on('click', 'a[href]', function (ae) {
-                            openLinkInNewTab($(ae.currentTarget).attr('href'));
-                        });
-                    });
-
-
-
-                    editor.on('change', function(event) {
-                        dispatchCustomEvent('change', event.target.getElement());
-                    });
-
-                    var eventName = isPopupView ? 'popupClose' : 'changeView';
-                    document.addEventListener(eventName, function (e) {
-                        tinyMCE.remove('#' + editor.id.replace(/:/g, '\\:'));
-                        document.removeEventListener(eventName, arguments.callee);
-                    });
-                }
          </script>
             <p:inputTextarea
 
