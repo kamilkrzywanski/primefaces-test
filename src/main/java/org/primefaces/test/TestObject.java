@@ -1,9 +1,10 @@
 package org.primefaces.test;
 
-import java.io.Serializable;
-import java.util.UUID;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import java.io.Serializable;
+import java.util.UUID;
 
 @Data
 @EqualsAndHashCode
