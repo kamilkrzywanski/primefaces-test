@@ -14,6 +14,53 @@
 
         <h1>#{testView.string}</h1>
         <h:form id="frmTest">
+            <p:tabView id="tabView">
+                <p:tab id="tab1" title="tab1">
+                    <p:timeline id="timeline" value="#{basicTimelineView.model}"
+                                height="250px" selectable="#{basicTimelineView.selectable}"
+                                zoomable="#{basicTimelineView.zoomable}"
+                                moveable="#{basicTimelineView.moveable}"
+                                stackEvents="#{basicTimelineView.stackEvents}"
+                                eventStyle="#{basicTimelineView.eventStyle}"
+                                showCurrentTime="#{basicTimelineView.showCurrentTime}">
+
+                        <p:ajax event="select" listener="#{basicTimelineView.onSelect}" />
+
+                    </p:timeline>
+
+                    <p:contextMenu id="contextmenu" for="frmTest:tabView:timeline">
+                        <p:menuitem value="Save" action="#{menuView.save}"  icon="pi pi-save"/>
+                        <p:menuitem value="Update" action="#{menuView.update}" icon="pi pi-refresh"/>
+                        <p:menuitem value="Delete" action="#{menuView.delete}" ajax="false" icon="pi pi-times"/>
+                        <p:menuitem value="Homepage" url="https://www.primefaces.org" icon="pi pi-home"/>
+                    </p:contextMenu>
+
+                </p:tab>
+                <p:tab id="tab23" title="TAB2">
+
+                    <p:timeline id="timeline2" value="#{basicTimelineView.model}"
+                                height="250px" selectable="#{basicTimelineView.selectable}"
+                                zoomable="#{basicTimelineView.zoomable}"
+                                moveable="#{basicTimelineView.moveable}"
+                                stackEvents="#{basicTimelineView.stackEvents}"
+                                eventStyle="#{basicTimelineView.eventStyle}"
+                                showCurrentTime="#{basicTimelineView.showCurrentTime}">
+
+                        <p:ajax event="select" listener="#{basicTimelineView.onSelect}" />
+
+                    </p:timeline>
+
+                    <p:contextMenu id="contextmenu2" for="frmTest:tabView:timeline2">
+                        <p:menuitem value="Save" action="#{menuView.save}"  icon="pi pi-save"/>
+                        <p:menuitem value="Update" action="#{menuView.update}" icon="pi pi-refresh"/>
+                        <p:menuitem value="Delete" action="#{menuView.delete}" ajax="false" icon="pi pi-times"/>
+                        <p:menuitem value="Homepage" url="https://www.primefaces.org" icon="pi pi-home"/>
+                    </p:contextMenu>
+
+                </p:tab>
+
+            </p:tabView>
+
 
         </h:form>
 
