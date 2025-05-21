@@ -13,7 +13,14 @@
     <h:body>
 
         <h1>#{testView.string}</h1>
+        <p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true"/>
+
         <h:form id="frmTest">
+
+            <p:outputLabel for="event" value="Select Event:"/>
+            <p:calendar id="event" value="#{testView.selectedDate}">
+                <p:ajax event="dateSelect" listener="#{testView.onDateSelect}" update="msgs"/>
+            </p:calendar>
 
         </h:form>
 
